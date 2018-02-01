@@ -15,15 +15,39 @@ Router.get('/list',function(req,res){
 		return res.json(doc)
 	})
 })
+
+Router.post('/update',function(req,res){
+
+	const userid= req.cookies.userid
+		console.log(req.body,userid)
+	if(!userid){
+		return json.dumps({code:1})
+	}
+	const body = req.body
+
+	User.findByIdAndUpdate(userid,body,function(err,doc){
+		//使用es5合并数据
+		const data = Object.assign({},{
+			user:doc.user,
+			type:doc.type
+		},body)
+		console.log(data)
+		return res.json({code:0,data}) 
+	})
+
+})
 Router.post('/login',function(req,res){
-	console.log(req.body)
+	
 	const {user,pwd} = req.body
 	User.findOne({user,pwd:md5Pwd(pwd)},function(err,doc){
 		if(err){
 			return res.json({code:1,msg:'用户不存在或者密码错误'})
 		}else{
+			if(doc == null){
+				return res.json({code:1,msg:'用户不存在或者密码错误'})
+			}
+			console.log(doc+"HH")
 			res.cookie('userid',doc._id)
-
 			return res.json({code:0,data:doc})
 		}
 		
@@ -42,6 +66,9 @@ Router.post('/register',function(req,res){
 			if(err){
 				return res.json({code:1,msg:'后端出错'})
 			}else{
+				if(doc == null){
+				return res.json({code:1,msg:'用户不存在或者密码错误'})
+			}
 				const {user,type,_id} = doc
 				res.cookie('userid',_id)
 				return res.json({code:0,data:{user,type,_id}})
