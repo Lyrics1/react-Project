@@ -25,7 +25,6 @@ class Dashboard extends React.Component{
 		const { pathname } = this.props.location
 		
 		const user = this.props.user
-		console.log( this.props)
 		const navList =[
 		{
 			path:'/boss',

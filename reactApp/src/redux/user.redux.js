@@ -17,7 +17,7 @@ const initState = {
 
 //reducer
 export function user(state=initState,action){
-	console.log(action)
+
 	switch (action.type){
 		case AUTH_SUCCESS:
 			return {...state,redirectTo:getRedirectPath(action.payload), msg:'',...action.payload,pwd:''}
@@ -46,7 +46,6 @@ function authSuccess(obj){
 
 
 export function loadData(userinfo){
-	console.log(userinfo)
 	return {type:LOAD_DATA,payload:userinfo}
 }
 export function update(data){

@@ -21,9 +21,8 @@ class AuthRoute extends React.Component{
 		//获取用户信息
 		axios.get('/user/info')
 			.then(res=>{
-				if(res.status == 200){
-					if(res.data.code == 0){
-						console.log(res.data)
+				if(res.status === 200){
+					if(res.data.code === 0){
 						//有登录信息
 						this.props.loadData(res.data.data)
 					}else{

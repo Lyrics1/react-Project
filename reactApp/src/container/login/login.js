@@ -12,7 +12,7 @@ import { Redirect } from 'react-router-dom'
 class Login extends React.Component{
 	constructor(props) {
 	  super(props);
-	
+
 	  this.state = {
 	  	user:'',
 	  	pwd:''
