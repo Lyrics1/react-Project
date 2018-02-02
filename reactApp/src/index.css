@@ -2,3 +2,30 @@
 	color:red;
 	padding-left: 10px;
 }
+.am-tab-bar{
+	position: fixed;
+	bottom: 0;
+	width:100%;
+}
+.fixd-header.am-navbar{
+	position: fixed;
+	top:0;
+	width: 100%;
+
+}
+.page-content{
+	padding:45px 45px;
+}
+.am-card-header-content img{
+	background-size: 100% 100%;
+	width:30px;
+	height: 30px;
+	border-radius: 15px;
+}
+.am-card-header-content span{
+	width:50vw;
+}
+.am-card-header-extra span {
+	    white-space:nowrap;
+	    overflow: hidden;
+}

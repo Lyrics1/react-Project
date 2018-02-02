@@ -16,6 +16,7 @@ import { withRouter } from  'react-router-dom'
 
  	render(){
  		const navList = this.props.data.filter(v=>!v.hide)//过滤掉hide为true的
+ 		console.log(navList)
  		const {pathname} =  this.props.location
  		return (
 			<TabBar >

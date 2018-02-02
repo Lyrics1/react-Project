@@ -15,7 +15,8 @@ class GeniusInfo extends React.Component{
 	  	company:'',
 	  	money:'',
 	  	desc:'',
-	  	avatar:''
+	  	avatar:'',
+	  	person:''
 	  };
 
 	  this.handleChange = this.handleChange.bind(this)
@@ -49,11 +50,11 @@ class GeniusInfo extends React.Component{
 					求职岗位
 				</InputItem>
 				<InputItem 
-					onChange={v=>this.handleChange('company',v)}>
+					onChange={v=>this.handleChange('desc',v)}>
 					技能
 				</InputItem>
 				<TextareaItem 
-					onChange={v=>this.handleChange('desc',v)}
+					onChange={v=>this.handleChange('person',v)}
 					rows={3}
 					autoHeight
 					title='个人简介'
