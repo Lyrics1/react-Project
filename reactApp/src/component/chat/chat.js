@@ -20,8 +20,8 @@ class Chat extends React.Component{
 	  };
 	}
 	componentDidMount(){
-		this.props.getMsgList()
-		this.props.recvMsg()
+		// this.props.getMsgList()
+		// this.props.recvMsg()
 		
 	}
 	handlesubmit(){
@@ -39,17 +39,29 @@ class Chat extends React.Component{
 
 	render(){
 		const user = this.props.match.params.user
+		const Item = List.Item
 		return (
 			<div id='chat-page'>
-			<NavBar mode='dark'>
+			<NavBar mode='dark' className='fixd-header'>
 				{user}
 			</NavBar>
+			<div className='page-content'>
 				{this.props.chat.chatmsg.map(v=>{
 					return v.from == user ?(
-					 <p key={v._id}>对方发来的 {v.content} </p>):
-					 (<p key={v._id}>我 {v.content} </p>)
+						<List key={v._id}>
+							<Item 
+								
+							>{v.content}</Item>
+						</List>
+					 ):
+					 (<List key={v._id}>
+							<Item 
+								extra={'dd'}
+							className='chat-me'> {v.content}</Item>
+						</List>)
 
 				})}
+			</div>
 				<div className="stick-footer">
 					<List>
 						<InputItem
@@ -62,7 +74,7 @@ class Chat extends React.Component{
 						></InputItem>
 					</List>
 				</div>
-				Chat {this.props.match.params.user}
+				
 			</div>
 			)
 	}

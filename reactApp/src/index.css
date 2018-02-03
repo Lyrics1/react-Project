@@ -1,4 +1,4 @@
-.err-msg{
+/*.err-msg{
 	color:red;
 	padding-left: 10px;
 }
@@ -6,16 +6,30 @@
 	position: fixed;
 	bottom: 0;
 	width:100%;
-	/*z-index: 100*/
+	
 }
-.fixd-header.am-navbar{
+.fixd-header{
 	position: fixed;
 	top:0;
 	width: 100%;
-	/*z-index: 100*/
-}
+	
+}*/
 .page-content{
-	padding:45px 45px;
+	padding:45px 0;
+}
+.fixd-header {
+	position: fixed;
+	top:0;
+	width: 100%;
+	z-index: 2
+	
+}
+.fixd-footer{
+	position: fixed;
+	bottom:0;
+	width: 100%;
+	z-index: 2
+	
 }
 .am-card-header-content img{
 	background-size: 100% 100%;
@@ -36,6 +50,15 @@
 	height: 50px;
 	border-radius: 25px;
 }
+.stick-footer{
+	z-index:10;
+	position:fixed;
+	bottom: 0;
+	width:100%;
+}
+
+
+
 #chat-page .chat-me .am-list-extra{
 	flex-basis: auto;
 }
@@ -43,10 +66,4 @@
 #chat-page .chat-me .am-list-content{
 	padding-right: 15px;
 	text-align: right
-}
-.stick-footer{
-	z-index:10;
-	position:absolute;
-	bottom: 0;
-	width:100%;
 }

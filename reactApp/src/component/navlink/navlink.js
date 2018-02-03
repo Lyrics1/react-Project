@@ -2,7 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { TabBar } from 'antd-mobile'
 import { withRouter } from  'react-router-dom'
+import {connect} from 'react-redux'
 @withRouter
+@connect(
+	state=>state.chat
+	)
  class NavLinkBar extends React.Component{
 
 	 static propTypes = {
@@ -15,12 +19,15 @@ import { withRouter } from  'react-router-dom'
  	}
 
  	render(){
+ 		console.log(this.props)
  		const navList = this.props.data.filter(v=>!v.hide)//过滤掉hide为true的
  		const {pathname} =  this.props.location
  		return (
+ 			<div className='fixd-footer'>
 			<TabBar >
 				{navList.map(v=>(
-					<TabBar.Item
+					<TabBar.Item 
+						badge={this.props.unrerad}
 						key={v.path}
 						title={v.text}
 						icon={{uri:require(`./navimg/${v.icon}.png`)}}
@@ -33,6 +40,7 @@ import { withRouter } from  'react-router-dom'
 				</TabBar.Item>
 				))}
 			</TabBar>
+			</div>
  			)
  	}
  }

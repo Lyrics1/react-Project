@@ -6,7 +6,9 @@ const User = model.getModel('user')
 const _filter = {'pwd':0,'__v':0}
 const Chat = model.getModel('chat')
 
-
+// Chat.remove({},function(err,dov ){
+	
+// })
 Router.get('/list',function(req,res){
 	const {type } = req.query
 
