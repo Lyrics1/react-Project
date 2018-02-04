@@ -2,13 +2,13 @@ import React from 'react'
 import io from 'socket.io-client'
 import {List ,InputItem ,NavBar,Icon,Grid} from 'antd-mobile'
 import { connect } from 'react-redux'
-import {getMsgList,sendMsg,recvMsg} from '../../redux/chat.redux'
+import {getMsgList,sendMsg,recvMsg,readMsg} from '../../redux/chat.redux'
 import {getChatId} from '../../util' 
 const socket = io('ws://localhost:8080')
 
 @connect(
 	state=>state,
-	{getMsgList,sendMsg,recvMsg}
+	{getMsgList,sendMsg,recvMsg,readMsg}
 	)
 
 class Chat extends React.Component{
@@ -25,9 +25,14 @@ class Chat extends React.Component{
 			this.props.getMsgList()
 			this.props.recvMsg()
 		}
-	
+		
 		// fixCarousel()
 		
+	}
+
+	componentWillUnmount(){
+		const to = this.props.match.params.user
+		this.props.readMsg(to)
 	}
 
 	fixCarousel (){
