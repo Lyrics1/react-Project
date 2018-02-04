@@ -29,7 +29,6 @@ class Chat extends React.Component{
 		const from = this.props.user._id
 		const to = this.props.match.params.user
 		const msg = this.state.text
-
 		this.props.sendMsg({from,to,msg})
 		this.setState({
 			text:''
@@ -40,6 +39,8 @@ class Chat extends React.Component{
 	render(){
 		const user = this.props.match.params.user
 		const Item = List.Item
+		console.log(this.props)
+
 		return (
 			<div id='chat-page'>
 			<NavBar mode='dark' className='fixd-header'>
@@ -47,6 +48,7 @@ class Chat extends React.Component{
 			</NavBar>
 			<div className='page-content'>
 				{this.props.chat.chatmsg.map(v=>{
+					
 					return v.from == user ?(
 						<List key={v._id}>
 							<Item 

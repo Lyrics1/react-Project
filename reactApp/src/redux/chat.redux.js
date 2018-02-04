@@ -33,6 +33,8 @@ function msgList(msgs){
 	return {type:MSG_LIST,payload:msgs}
 }
 function msgRecv(msg){
+	console.log(msg)
+
 	return {type:MSG_RECV,payload:msg}
 }
 export function getMsgList(){
@@ -56,7 +58,6 @@ export function sendMsg({from ,to ,msg}){
 export function recvMsg(){
 	return dispatch=>{
 		socket.on('recvmsg',function(data){
-			console.log('sss',data)
 			dispatch(msgRecv(data))
 		})
 	}
