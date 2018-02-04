@@ -19,7 +19,6 @@ import {connect} from 'react-redux'
  	}
 
  	render(){
- 		console.log(this.props.unread)
  		const navList = this.props.data.filter(v=>!v.hide)//过滤掉hide为true的
  		const {pathname} =  this.props.location
  		return (
@@ -27,7 +26,7 @@ import {connect} from 'react-redux'
 			<TabBar >
 				{navList.map(v=>(
 					<TabBar.Item 
-						badge={this.props.unread}
+						badge={v.path=='/msg' ?this.props.unread :0}
 						key={v.path}
 						title={v.text}
 						icon={{uri:require(`./navimg/${v.icon}.png`)}}
