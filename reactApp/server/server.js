@@ -7,7 +7,7 @@ const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const model = require('./model')
 const Chat = model.getModel('chat')
-
+const path = require('path')
 io.on('connection',function(socket){
 
 		socket.on('sendmsg',function(data){
@@ -35,6 +35,14 @@ app.use(bodyParser.json())
 
 
 app.use('/user',UserRouter);//开启中间件
+
+app.use(function(req,res,next){
+	if(req.url.startsWith('/user/')||req.url.startsWith('/static/')){
+		return next()
+	}
+	return res.sendFile(path.resolve('build/index.html'))
+})
+app.use('/',express.static(path.resolve('build')))
 server.listen(8080,function(){
 	console.log("port 8080");
 })
