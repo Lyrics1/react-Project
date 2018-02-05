@@ -10,9 +10,9 @@ import {
 
 class Msg extends React.Component{
 	constructor(props) {
-	  super(props);
+	  super(props)
 	
-	  this.state = {};
+	  this.state = {}
 	}
 
 	getLast(arr){
@@ -32,7 +32,7 @@ class Msg extends React.Component{
 			msgGroup[v.chatid] = msgGroup[v.chatid] || []
 			msgGroup[v.chatid].push(v)
 		})
-		console.log(msgGroup)
+		
 		const chatList = Object.values(msgGroup).sort((a,b)=>{
 			const a_last = this.getLast(a).create_time
 			const b_last = this.getLast(b).create_time
@@ -47,13 +47,13 @@ class Msg extends React.Component{
 				
 					{chatList.map(v=>{
 						const lastItem = this.getLast(v)
-						console.log(v)
+						
 					const targetId = v[0].from == userid ? v[0].to:v[0].from
 					const unreadNum = v.filter (v=>!v.read && v.to ==userid ).length
 					if(!this.props.chat.users[targetId]){
 						return null
 					}
-					console.log(this.props.chat.users[targetId])
+				
 					const name =this.props.chat.users[targetId].name 
 					const avatar =this.props.chat.users[targetId].avatar 
 

@@ -24,7 +24,7 @@ Router.get('/list',function(req,res){
 Router.post('/update',function(req,res){
 
 	const userid= req.cookies.userid
-		console.log(req.body,userid)
+	
 	if(!userid){
 		return json.dumps({code:1})
 	}
@@ -36,7 +36,7 @@ Router.post('/update',function(req,res){
 			user:doc.user,
 			type:doc.type
 		},body)
-		console.log(data)
+		
 		return res.json({code:0,data}) 
 	})
 
@@ -51,7 +51,7 @@ Router.post('/login',function(req,res){
 			if(doc == null){
 				return res.json({code:1,msg:'用户不存在或者密码错误'})
 			}
-			console.log(doc+"HH")
+			
 			res.cookie('userid',doc._id)
 			return res.json({code:0,data:doc})
 		}
@@ -59,7 +59,7 @@ Router.post('/login',function(req,res){
 	})
 })
 Router.post('/register',function(req,res){
-	console.log(req.body)
+	
 	const {user,pwd,type} = req.body
 	User.findOne({user:user},function(err,doc){
 		if(doc){

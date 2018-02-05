@@ -8,7 +8,7 @@ import UserCard from '../usercard/usercard'
 	{getUserList})
 class Genius extends React.Component{
 	constructor(props) {
-	  super(props);
+	  super(props)
 	  this.state = {
 	}
 }

@@ -9,7 +9,7 @@ import { Redirect } from 'react-router-dom'
 	{update})
 class GeniusInfo extends React.Component{
 	constructor(props) {
-	  super(props);
+	  super(props)
 	  this.state = {
 	  	title:'',
 	  	company:'',
@@ -17,7 +17,7 @@ class GeniusInfo extends React.Component{
 	  	desc:'',
 	  	avatar:'',
 	  	person:''
-	  };
+	  }
 
 	  this.handleChange = this.handleChange.bind(this)
 	  this.selectAvatar = this.selectAvatar.bind(this)
@@ -29,7 +29,7 @@ class GeniusInfo extends React.Component{
 		})
 	}
 	selectAvatar(imgname){
-		console.log(imgname)
+		
 		this.setState({
 			avatar:imgname
 		})

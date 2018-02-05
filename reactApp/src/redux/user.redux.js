@@ -70,7 +70,7 @@ export function login({user,pwd}){
 			.then(res=>{
 
 				if(res.status == 200 && res.data.code ===0){
-					console.log(user)
+					
 						dispatch(authSuccess(res.data.data))
 				}else{
 						dispatch(errorMsg(res.data.msg))
@@ -86,7 +86,7 @@ export function register({user,pwd,repeatpwd,type}){
 		return errorMsg("用户名密码必须输入")
 	}
 	if(pwd != repeatpwd){
-		console.log(pwd,repeatpwd)
+	
 		return errorMsg("密码和确认密码不一致")
 	}
 	return dispatch=>{

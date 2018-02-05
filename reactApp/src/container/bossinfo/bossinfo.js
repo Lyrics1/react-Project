@@ -9,14 +9,14 @@ import { Redirect } from 'react-router-dom'
 	{update})
 class BossInfo extends React.Component{
 	constructor(props) {
-	  super(props);
+	  super(props)
 	  this.state = {
 	  	title:'',
 	  	company:'',
 	  	money:'',
 	  	desc:'',
 	  	avatar:''
-	  };
+	  }
 
 	  this.handleChange = this.handleChange.bind(this)
 	  this.selectAvatar = this.selectAvatar.bind(this)
@@ -28,7 +28,7 @@ class BossInfo extends React.Component{
 		})
 	}
 	selectAvatar(imgname){
-		console.log(imgname)
+		
 		this.setState({
 			avatar:imgname
 		})

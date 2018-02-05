@@ -6,7 +6,7 @@ export function getRedirectPath({type,avatar}){
 	if(!avatar){
 		url+='info'
 	}
-	return url;
+	return url
 }
 
 export function getChatId(userId,targetId){

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid,List } from 'antd-mobile';
+import { Grid,List } from 'antd-mobile'
 import PropTypes from 'prop-types'
 class AvatarSelector extends React.Component{
 	static propTypes = {
@@ -7,9 +7,9 @@ class AvatarSelector extends React.Component{
 	}
 
 	constructor(props) {
-	  super(props);
+	  super(props)
 	
-	  this.state = {};
+	  this.state = {}
 	}
 	render(){
 

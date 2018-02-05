@@ -12,7 +12,7 @@ import  reactFrom from '../../component/react-from/react-from'
 @reactFrom
 class Login extends React.Component{
 	constructor(props) {
-	  super(props);
+	  super(props)
 
 	  this.register = this.register.bind(this)
 	  this.handleLogin = this.handleLogin.bind(this)

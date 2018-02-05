@@ -13,7 +13,7 @@ import  reactFrom from '../../component/react-from/react-from'
 @reactFrom
 class Register extends React.Component{
 	constructor(props) {
-	  super(props);
+	  super(props)
 
 	this.handleRegister = this.handleRegister.bind(this)
 	}

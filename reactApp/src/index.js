@@ -5,8 +5,6 @@ import thunk from 'redux-thunk'
 import {Provider} from 'react-redux'
 import {BrowserRouter,
 	Route,
-	Link,
-	Redirect,
 	Switch} from 'react-router-dom'
 
 import Login  from './container/login/login'

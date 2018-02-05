@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect} from 'react-redux'
-import { NavBar} from 'antd-mobile';
+import { NavBar} from 'antd-mobile'
 import { Switch,Route } from 'react-router-dom'
 import  NavLinkBar  from '../navlink/navlink'
 import Boss from '../../component/boss/boss'
@@ -8,6 +8,7 @@ import Genius from '../../component/genius/genius'
 import User from '../../component/user/user'
 import {getMsgList,recvMsg} from '../../redux/chat.redux'
 import Msg from '../../component/msg/msg'
+import QueueAnim from 'rc-queue-anim'
 
 @connect(
 	state=>state,
@@ -15,8 +16,8 @@ import Msg from '../../component/msg/msg'
 	)
 class Dashboard extends React.Component{
 	constructor(props) {
-	  super(props);
-	  this.state = {};
+	  super(props)
+	  this.state = {}
 	}
 	componentDidMount(){
 		if(!this.props.chat.chatmsg.length){
@@ -64,17 +65,21 @@ class Dashboard extends React.Component{
 			
 		}
 	]
+	const page = navList.find(v=>v.path == pathname)
+	
 		return (
 			<div>
 				<NavBar className='fixd-header' mode='dard'>{navList.find(v=>v.path== pathname).title}</NavBar>
 				<div className='page-content'>
-					<Switch>
-						{navList.map(v=>(
-							<Route key={v.path} path={v.path} component = {v.component} >
+					
+						<QueueAnim type="alpha" duration={800}>
+							
+								<Route key={page.path} path={page.path} component = {page.component} >
+									
+								</Route>
 								
-							</Route>
-							))}
-					</Switch>
+						</QueueAnim>
+					
 				</div>
 				<NavLinkBar data={navList} ></NavLinkBar>
 			</div>

@@ -13,9 +13,9 @@ import {connect} from 'react-redux'
 		data:PropTypes.array.isRequired
 	 }
  	constructor(props) {
- 	  super(props);
+ 	  super(props)
  	
- 	  this.state = {};
+ 	  this.state = {}
  	}
 
  	render(){
